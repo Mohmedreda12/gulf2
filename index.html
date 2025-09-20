@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>مصممون الخليج للملابس | Gulf Uniform Designers Plant</title>
+  <meta name="description" content="رواد تصنيع ملابس FR والزي الموحد للأمن والضيافة والقطاع الطبي في السعودية. جودة معتمدة وقدرات إنتاجية عالية." />
+  <meta name="theme-color" content="#0a2a4a" />
+
+  <!-- Basic in-page CSP (الأفضل إضافتها كهيدر من الخادم) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+
+  <!-- Fonts (اختياري) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<a class="skip" href="#main">تجاوز إلى المحتوى</a>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">GU</div>
+      <div>
+        <h1 id="brand-ar">مصممون الخليج للملابس</h1>
+        <small id="brand-en">Gulf Uniform Designers Plant</small>
+      </div>
+    </div>
+
+    <button class="burger" id="burger" aria-label="قائمة">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="mainNav" aria-label="التنقل">
+      <ul>
+        <li><a href="#about" data-i18n="nav.about">عن المصنع</a></li>
+        <li><a href="#products" data-i18n="nav.products">المنتجات</a></li>
+        <li><a href="#quality" data-i18n="nav.quality">الجودة</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">تواصل</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta">
+      <a class="btn btn-acc" href="#contact" data-i18n="cta.quote">اطلب عرض سعر</a>
+      <button id="toggleLang" class="lang" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container inner">
+      <div>
+        <span class="badge" id="hero-badge">FR • Workwear • Uniforms</span>
+        <h2 id="hero-title">رواد تصنيع ملابس FR والزيّ الموحد بمعايير عالمية في السعودية</h2>
+        <p id="hero-sub">
+          نصنع ملابس مقاومة للهب وملابس أمن وضيافة وقطاع طبي بجودة معتمدة، وطاقة إنتاجية تواكب مشاريعكم الكبرى.
+        </p>
+        <div class="cta">
+          <a class="btn btn-acc" href="#products" data-i18n="cta.seeProducts">تصفح المنتجات</a>
+          <a class="btn" href="#about" data-i18n="cta.learnMore">اعرف أكثر</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="أرقام سريعة">
+        <div class="stats">
+          <div class="stat">
+            <div class="num" id="s1">+12K</div>
+            <small id="s1t">قطعة شهرياً</small>
+          </div>
+          <div class="stat">
+            <div class="num" id="s2">ISO • NFPA</div>
+            <small id="s2t">شهادات ومعايير</small>
+          </div>
+          <div class="stat">
+            <div class="num" id="s3">+150</div>
+            <small id="s3t">عميل وشريك</small>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title"><span class="dot"></span><h3 data-i18n="about.title">عن مصنعنا</h3></div>
+      <p class="muted" id="about-text">
+        تأسس مصنع مصممون الخليج للملابس لتلبية احتياجات قطاعات الطاقة، الأمن، الضيافة، والرعاية الصحية في المملكة.
+        نعتمد عمليات تصنيع دقيقة، وفحص جودة متعدد المراحل لضمان أعلى مستويات السلامة والراحة.
+      </p>
+    </div>
+  </section>
+
+ <!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-title"><span class="dot"></span><h3 data-i18n="products.title">منتجاتنا</h3></div>
+    <div class="grid grid-4">
+
+      <!-- FR -->
+      <article class="card"
+               role="link" tabindex="0"
+               onclick="location.href='products.html#fr'"
+               onkeydown="if(event.key==='Enter'){location.href='products.html#fr'}"
+               style="cursor:pointer">
+        <div class="card-img">
+          <img alt="FR Clothing" src="a1/rrr.jpg">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title" data-i18n="products.fr.title">ملابس مقاومة للهب (FR)</h4>
+          <p class="muted" data-i18n="products.fr.desc">بدلات عمل ومعاطف وجواكت مطابقة لمتطلبات السلامة.</p>
+        </div>
+      </article>
+
+      <!-- الأمن → تبويب الأمن + الضيافة -->
+      <article class="card"
+               role="link" tabindex="0"
+               onclick="location.href='products.html#sec_hosp'"
+               onkeydown="if(event.key==='Enter'){location.href='products.html#sec_hosp'}"
+               style="cursor:pointer">
+        <div class="card-img">
+          <img alt="Security Uniforms" src="a1/s1.jpg">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title" data-i18n="products.sec.title">زيّ الأمن والحمايةوزيّ مكتبي</h4>
+          <p class="muted" data-i18n="products.sec.desc">خامات متينة، تفاصيل عملية، ومظهر احترافي متناسق.</p>
+        </div>
+      </article>
+
+      <!-- الضيافة → نفس تبويب الأمن + الضيافة -->
+      <article class="card"
+               role="link" tabindex="0"
+               onclick="location.href='products.html#sec_hosp'"
+               onkeydown="if(event.key==='Enter'){location.href='products.html#sec_hosp'}"
+               style="cursor:pointer">
+        <div class="card-img">
+          <img alt="Hospitality Uniforms" src="a1/f1.jpg">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title" data-i18n="products.hosp.title">زيّ المطاعم والضيافة</h4>
+          <p class="muted" data-i18n="products.hosp.desc">تصاميم أنيقة مقاومة للبقع وسهلة العناية.</p>
+        </div>
+      </article>
+
+      <!-- الطبي → تبويب الطبي + المدارس -->
+      <article class="card"
+               role="link" tabindex="0"
+               onclick="location.href='products.html#med_schools'"
+               onkeydown="if(event.key==='Enter'){location.href='products.html#med_schools'}"
+               style="cursor:pointer">
+        <div class="card-img">
+          <img alt="Medical Uniforms" src="a1/d1.jpg">
+        </div>
+        <div class="card-body">
+          <h4 class="card-title" data-i18n="products.med.title">القطاع الطبي</h4>
+          <p class="muted" data-i18n="products.med.desc">سكربات ومعاطف وخيارات مريحة للكوادر الطبية.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- QUALITY -->
+  <section id="quality">
+    <div class="container quality">
+      <div>
+        <div class="section-title"><span class="dot"></span><h3 data-i18n="quality.title">الجودة والإنتاج</h3></div>
+        <p class="muted" id="quality-text">
+          نتبع نظام ضبط جودة متعدد المراحل، من اختيار الأقمشة واختبارها حتى التفصيل والفحص النهائي.
+          خطوطنا قادرة على تلبية الطلبيات الكبيرة بمواعيد تسليم دقيقة.
+        </p>
+        <div class="chips" style="margin-top:.5rem">
+          <span class="chip">ISO 9001</span>
+          <span class="chip">NFPA 2112</span>
+          <span class="chip" data-i18n="quality.fabric">اختبارات الأقمشة واللهب</span>
+          <span class="chip" data-i18n="quality.trace">تتبّع تشغيلي كامل</span>
+        </div>
+      </div>
+      <div>
+        <div class="section-title"><span class="dot"></span><h3 data-i18n="clients.title">عملاؤنا</h3></div>
+        <div class="logos" aria-label="شعارات عملاء">
+          <div class="logo-card">CLIENT A</div>
+          <div class="logo-card">CLIENT B</div>
+          <div class="logo-card">CLIENT C</div>
+          <div class="logo-card">CLIENT D</div>
+          <div class="logo-card">CLIENT E</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <span class="dot"></span>
+      <h3 data-i18n="contact.title">تواصل معنا</h3>
+    </div>
+
+    <div class="contact">
+      <form id="contactForm" novalidate>
+        <!-- بدل inline-style بـ class -->
+        <div class="grid form-grid">
+          <div>
+            <label for="name" class="muted" data-i18n="contact.name">الاسم</label>
+            <input id="name" name="name" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="email" class="muted" data-i18n="contact.email">البريد الإلكتروني</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="msg" class="muted" data-i18n="contact.msg">رسالتك</label>
+          <textarea id="msg" name="message" required></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-acc" type="submit" data-i18n="contact.send">إرسال</button>
+          <small class="muted" id="formNote">لن نشارك بياناتك مع أي طرف ثالث.</small>
+        </div>
+      </form>
+
+      <aside>
+        <div class="card pad-1">
+          <h4 class="mb-5" data-i18n="contact.factory">بيانات المصنع</h4>
+          <p class="muted" id="factory-addr">الخبر – المملكة العربية السعودية</p>
+          <p class="muted" id="factory-phone">الهاتف: 0000 000 050</p>
+          <p class="muted" id="factory-mail">البريد: sales@gulf-uniform.sa</p>
+          <a class="btn mt-5" href="tel:+9660000000" data-i18n="contact.call">اتصل الآن</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>&copy; <span id="y"></span> <span id="foot-brand">مصممون الخليج للملابس</span> — All rights reserved.</div>
+    <div style="display:flex;gap:.5rem;align-items:center">
+      <a class="btn" href="#top" data-i18n="footer.back">عودة للأعلى</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('mainNav');
+  burger?.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // Year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Simple form (client-side only)
+  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert(currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح (نموذج تجريبي).'
+                               : 'Your message has been sent (demo form).');
+    e.target.reset();
+  });
+
+  // i18n
+  let currentLang = 'ar';
+  const t = {
+    ar: {
+      "nav.about":"عن المصنع","nav.products":"المنتجات","nav.quality":"الجودة","nav.contact":"تواصل",
+      "cta.quote":"اطلب عرض سعر","cta.seeProducts":"تصفح المنتجات","cta.learnMore":"اعرف أكثر",
+      "about.title":"عن مصنعنا",
+      "products.title":"منتجاتنا",
+      "products.fr.title":"ملابس مقاومة للهب (FR)","products.fr.desc":"بدلات عمل ومعاطف وجواكت مطابقة لمتطلبات السلامة.",
+      "products.sec.title":"زيّ الأمن والحماية زيّ مكتبي","products.sec.desc":"خامات متينة، تفاصيل عملية، ومظهر احترافي متناسق.",
+      "products.hosp.title":"زيّ المطاعم والضيافة","products.hosp.desc":"تصاميم أنيقة مقاومة للبقع وسهلة العناية.",
+      "products.med.title":"القطاع الطبي والتعليمي","products.med.desc":"سكربات ومعاطف وخيارات مريحة للكوادر الطبية.",
+      "quality.title":"الجودة والإنتاج","quality.fabric":"اختبارات الأقمشة واللهب","quality.trace":"تتبّع تشغيلي كامل",
+      "clients.title":"عملاؤنا",
+      "contact.title":"تواصل معنا","contact.name":"الاسم","contact.email":"البريد الإلكتروني","contact.msg":"رسالتك","contact.send":"إرسال",
+      "contact.factory":"بيانات المصنع","contact.call":"اتصل الآن",
+      "footer.back":"عودة للأعلى"
+    },
+    en: {
+      "nav.about":"About","nav.products":"Products","nav.quality":"Quality","nav.contact":"Contact",
+      "cta.quote":"Request a Quote","cta.seeProducts":"See Products","cta.learnMore":"Learn More",
+      "about.title":"About Our Plant",
+      "products.title":"Our Products",
+      "products.fr.title":"Flame-Resistant (FR) Workwear","products.fr.desc":"Coveralls, jackets and coats built to safety standards.",
+      "products.sec.title":"Security Uniforms","products.sec.desc":"Durable fabrics, practical details and professional look.",
+      "products.hosp.title":"Hospitality & Restaurants","products.hosp.desc":"Elegant designs, stain-resistant and easy-care.",
+      "products.med.title":"Medical Sector","products.med.desc":"Scrubs, lab coats and comfortable options for medical staff.",
+      "quality.title":"Quality & Capacity","quality.fabric":"Fabric & flame tests","quality.trace":"Full operational traceability",
+      "clients.title":"Our Clients",
+      "contact.title":"Contact Us","contact.name":"Name","contact.email":"Email","contact.msg":"Your Message","contact.send":"Send",
+      "contact.factory":"Factory Info","contact.call":"Call Now",
+      "footer.back":"Back to Top"
+    }
+  };
+
+  const i18nNodes = document.querySelectorAll('[data-i18n]');
+  const toggleBtn = document.getElementById('toggleLang');
+  const brandAr = document.getElementById('brand-ar');
+  const brandEn = document.getElementById('brand-en');
+  const footBrand = document.getElementById('foot-brand');
+
+  function applyLang(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    i18nNodes.forEach(n=>{
+      const key = n.getAttribute('data-i18n');
+      n.textContent = t[lang][key] || n.textContent;
+    });
+
+    // Hero/Stats/About texts
+    const isAr = lang==='ar';
+    document.getElementById('hero-title').textContent =
+      isAr ? 'رواد تصنيع ملابس FR والزيّ الموحد بمعايير عالمية في السعودية'
+           : 'Leaders in FR Workwear & Uniform Manufacturing in Saudi Arabia';
+    document.getElementById('hero-sub').textContent =
+      isAr ? 'نصنع ملابس مقاومة للهب وملابس أمن وضيافة وقطاع طبي بجودة معتمدة، وطاقة إنتاجية تواكب مشاريعكم الكبرى.'
+           : 'We manufacture FR workwear, security, hospitality and medical uniforms with certified quality and scalable capacity.';
+    document.getElementById('hero-badge').textContent =
+      isAr ? 'FR • ملابس عمل • زي موّحد' : 'FR • Workwear • Uniforms';
+    document.getElementById('s1t').textContent = isAr ? 'قطعة شهرياً' : 'pieces / month';
+    document.getElementById('s2t').textContent = isAr ? 'شهادات ومعايير' : 'Certifications';
+    document.getElementById('s3t').textContent = isAr ? 'عميل وشريك' : 'Clients & Partners';
+    document.getElementById('about-text').textContent =
+      isAr ? 'تأسس مصنع مصممون الخليج للملابس لتلبية احتياجات قطاعات الطاقة، الأمن، الضيافة، والرعاية الصحية في المملكة. نعتمد عمليات تصنيع دقيقة، وفحص جودة متعدد المراحل لضمان أعلى مستويات السلامة والراحة.'
+           : 'Gulf Uniform Designers Plant serves energy, security, hospitality and healthcare sectors in KSA. We follow rigorous manufacturing and multi-stage quality control to ensure safety and comfort.';
+    document.getElementById('quality-text').textContent =
+      isAr ? 'نتبع نظام ضبط جودة متعدد المراحل، من اختيار الأقمشة واختبارها حتى التفصيل والفحص النهائي. خطوطنا قادرة على تلبية الطلبيات الكبيرة بمواعيد تسليم دقيقة.'
+           : 'We implement multi-stage QC from fabric selection and testing to stitching and final inspection. Our lines can fulfill large orders with precise delivery schedules.';
+    document.getElementById('factory-addr').textContent =
+      isAr ? 'الخبر – المملكة العربية السعودية' : 'Riyadh – Kingdom of Saudi Arabia';
+    document.getElementById('factory-phone').textContent =
+      isAr ? 'الهاتف: 0000 000 050' : 'Phone: +966 50 000 0000';
+    document.getElementById('factory-mail').textContent =
+      isAr ? 'البريد: sales@gulf-uniform.sa' : 'Email: sales@gulf-uniform.sa';
+    brandAr.textContent = isAr ? 'مصممون الخليج للملابس' : 'Gulf Uniform';
+    brandEn.textContent = isAr ? 'Gulf Uniform Designers Plant' : 'Gulf Uniform Designers Plant';
+    footBrand.textContent = isAr ? 'مصممون الخليج للملابس' : 'Gulf Uniform Designers Plant';
+
+    // Button label
+    toggleBtn.textContent = isAr ? 'EN' : 'AR';
+    toggleBtn.setAttribute('aria-pressed', (!isAr).toString());
+  }
+
+  toggleBtn?.addEventListener('click', ()=>{
+    applyLang(currentLang === 'ar' ? 'en' : 'ar');
+  });
+
+  applyLang('ar'); // default Arabic
+</script>
+</body>
+</html>
