@@ -1,0 +1,234 @@
+:root{
+  --primary:#0a2a4a;
+  --primary-700:#0f345d;
+  --accent:#ff6a00;
+  --ink:#e5e7eb;
+  --muted:#a3b2c5;
+  --bg:#0b1220;
+  --card:#101827;
+  --glass:rgba(255,255,255,.06);
+  --ring:rgba(255,106,0,.28);
+}
+
+/* أساسيات */
+*,::before,::after{ box-sizing:border-box }
+html{ scroll-behavior:smooth }
+html, body{ max-width:100%; overflow-x:hidden }   /* منع أي سكرول أفقي عام */
+
+body{
+  margin:0; color:var(--ink);
+  background:
+    radial-gradient(900px 520px at 100% -10%, rgba(255,106,0,.08), transparent 60%),
+    radial-gradient(800px 480px at -10% 30%, rgba(14,165,233,.07), transparent 60%),
+    linear-gradient(180deg, #0b1220, #0a1222 60%, #0a1326);
+  font-family:'Cairo', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+a{ color:inherit; text-decoration:none }
+img,video,canvas,svg{ max-width:100%; height:auto; display:block }
+
+/* حاوية موحّدة */
+.container{
+  width:100%;
+  max-width:1200px;
+  margin-inline:auto;
+  padding-inline:14px;       /* بدل 92vw */
+}
+
+/* زر تجاوز */
+/* Skip link – لا يوسّع عرض الصفحة */
+.skip{
+  position:absolute;
+  transform:translateX(-200%);     /* إخفاء بلا تأثير على الـlayout */
+  top:1rem; inset-inline-start:1rem;
+}
+.skip:focus{
+  transform:none;
+  background:#fff; color:#000;
+  padding:.5rem 1rem; border-radius:.5rem;
+  z-index:9999; outline:none;
+} 
+/* ===== Header ===== */
+header{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(130%) blur(10px);
+  background:linear-gradient(180deg, rgba(16,24,39,.9), rgba(16,24,39,.7));
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 0 }
+.brand{ display:flex; align-items:center; gap:.75rem }
+.logo{
+  display:grid; place-items:center; width:42px; height:42px; border-radius:12px;
+  background:linear-gradient(135deg, var(--accent), #ffd166); color:#111827; font-weight:900;
+}
+.brand h1{ margin:0; line-height:1.2; font-size:1.05rem }
+.brand small{ display:block; color:#cbd5e1; font-family:'Montserrat',system-ui,sans-serif; font-weight:600; font-size:.75rem }
+nav ul{ display:flex; gap:.25rem .5rem; list-style:none; margin:0; padding:0; flex-wrap:wrap }
+nav a{ padding:.5rem .7rem; border-radius:.6rem; color:#cbd5e1; font-weight:800 }
+nav a:hover, nav a:focus{ background:var(--glass); outline:none }
+.cta{ display:flex; align-items:center; gap:.5rem }
+.btn{
+  border:1px solid rgba(255,255,255,.14);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  color:#fff; padding:.6rem .95rem; border-radius:.8rem; font-weight:900; letter-spacing:.2px;
+  box-shadow:0 0 0 0 rgba(255,106,0,0); transition:transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{ transform:translateY(-1px); box-shadow:0 10px 28px -12px var(--ring) }
+.btn-acc{ background:linear-gradient(135deg, var(--accent), #ff8f3a); color:#0b1220; border:none }
+.lang{ border:1px solid rgba(255,255,255,.14); background:transparent; color:#fff; padding:.5rem .7rem; border-radius:.6rem; font-weight:900; cursor:pointer }
+
+/* Mobile menu */
+.burger{ display:none; flex-direction:column; gap:4px }
+.burger span{ width:22px; height:2px; background:#e5e7eb; border-radius:2px }
+@media (max-width:900px){
+  .burger{ display:flex }
+  nav{ display:none; position:absolute; inset-inline:0; top:60px; background:#101827; border-bottom:1px solid rgba(255,255,255,.06) }
+  nav.open{ display:block }
+  nav ul{ flex-direction:column; padding:1rem }
+  .cta{ display:none }
+}
+
+/* ===== Hero ===== */
+.hero{ position:relative; isolation:isolate }
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:url('a1/kl.jpg') center/cover no-repeat;
+  filter:contrast(1.05) brightness(.55);
+}
+.hero .inner{ display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; padding:clamp(2rem,5vw,4rem) 0 }
+.hero h2{ font-size:clamp(1.8rem,3.2vw,2.6rem); margin:0 0 .6rem }
+.hero p{ color:#d1d5db; margin:0 0 1.2rem }
+.badge{
+  display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .7rem; border-radius:999px;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); margin-bottom:.9rem;
+}
+.hero-card{
+  align-self:end; background:linear-gradient(180deg, rgba(16,24,39,.7), rgba(16,24,39,.9));
+  border:1px solid rgba(255,255,255,.08); border-radius:1.2rem; padding:1.25rem;
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.55);
+}
+.stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem }
+.stat{ background:var(--glass); border:1px solid rgba(255,255,255,.08); border-radius:.9rem; padding:1rem; text-align:center }
+.stat .num{ font-size:1.4rem; font-weight:900 }
+.stat small{ color:#94a3b8 }
+
+/* ===== Sections ===== */
+section{ padding:clamp(2rem, 6vw, 4rem) 0 }
+.section-title{ display:flex; align-items:center; gap:.6rem; margin-bottom:1.25rem }
+.section-title .dot{ width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 6px rgba(255,106,0,.12) }
+.section-title h3{ margin:0; font-size:clamp(1.4rem, 2.6vw, 1.9rem) }
+.muted{ color:#94a3b8 }
+
+/* ===== Grid / Cards ===== */
+.grid{ display:grid; gap:1rem; min-width:0 }
+.grid-3{ grid-template-columns:repeat(3,1fr) }
+.grid-4{ grid-template-columns:repeat(4,1fr) }
+
+@media (max-width:1000px){
+  .hero .inner{ grid-template-columns:1fr }
+  .grid-4{ grid-template-columns:repeat(2,1fr) }
+  .grid-3{ grid-template-columns:repeat(2,1fr) }
+}
+@media (max-width:640px){
+  .grid-3, .grid-4{ grid-template-columns:1fr }
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08); border-radius:1rem; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{ transform:translateY(-4px); box-shadow:0 18px 40px -20px rgba(255,106,0,.28) }
+.card-img{ aspect-ratio:4/3; overflow:hidden }
+.card-img img{ width:100%; height:100%; object-fit:cover; filter:saturate(1.05) }
+.card-body{ padding:1rem }
+.card-title{ margin:.2rem 0 .35rem; font-weight:900 }
+
+/* ===== Quality / Logos ===== */
+.quality{ display:grid; grid-template-columns:1.2fr .8fr; gap:1.25rem }
+@media (max-width:1000px){ .quality{ grid-template-columns:1fr } }
+.chips{ display:flex; flex-wrap:wrap; gap:.5rem }
+.chip{
+  display:inline-flex; align-items:center; gap:.4rem; padding:.35rem .7rem; border-radius:999px;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+}
+.logos{ display:grid; grid-template-columns:repeat(5,1fr); gap:1rem }
+.logo-card{
+  background:var(--glass); border:1px solid rgba(255,255,255,.08); border-radius:.8rem;
+  display:grid; place-items:center; height:62px; color:#cbd5e1; font-weight:800; letter-spacing:.3px;
+}
+@media (max-width:900px){ .logos{ grid-template-columns:repeat(3,1fr) } }
+
+/* ===== Contact ===== */
+.contact{ display:grid; grid-template-columns:1fr 1fr; gap:1.25rem }
+@media (max-width:900px){ .contact{ grid-template-columns:1fr } }
+
+input, textarea{
+  width:100%; background:rgba(255,255,255,.04); color:#e5e7eb;
+  border:1px solid rgba(255,255,255,.14); border-radius:.7rem; padding:.8rem 1rem;
+  font-family:inherit; outline:none; transition:border .15s ease, box-shadow .15s ease;
+}
+input:focus, textarea:focus{ border-color:#ff8f3a; box-shadow:0 0 0 4px rgba(255,106,0,.15) }
+textarea{ min-height:140px; resize:vertical }
+
+/* تخطيط فورم بدون inline (اختياري) */
+.form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem }
+@media (max-width:900px){ .form-grid{ grid-template-columns:1fr } }
+.field{ margin-top:1rem }
+.form-actions{ margin-top:1rem; display:flex; gap:.6rem; align-items:center }
+.pad-1{ padding:1rem } .mt-5{ margin-top:.5rem } .mb-5{ margin:.2rem 0 .5rem }
+
+/* ===== Footer ===== */
+footer{ padding:2rem 0; color:#a3b2c5; border-top:1px solid rgba(255,255,255,.06); background:rgba(16,24,39,.6) }
+.foot{ display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:center }
+@media (max-width:800px){ .foot{ grid-template-columns:1fr } }
+
+/* ===== تحسين الهيرو للموبايل ===== */
+@media (max-width:1024px){
+  .hero{ padding-inline:0 }
+  .hero .inner{
+    grid-template-columns:1fr;
+    grid-auto-flow:row;
+    gap:1rem;
+    padding:1.5rem 0;
+    text-align:center;
+  }
+  .hero-card{
+    margin-top:1.5rem;
+    justify-self:center;
+    width:100%;
+    max-width:480px;
+  }
+}
+
+
+@media (max-width:900px){
+  .burger{ display:flex }
+
+  nav{ 
+    display:none;
+    position:absolute;
+    inset-inline:0;
+    top:60px; /* ارتفاع الهيدر */
+    background:#101827;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    overflow:visible;
+  }
+  nav.open{ display:block }
+  nav ul{ flex-direction:column; padding:1rem }
+
+  /* هنا نخلي الـCTA تظهر بدل ما تختفي */
+  .cta{ 
+    display:flex; 
+    gap:.4rem; 
+    margin-inline-start:auto; 
+    order:3;
+  }
+
+  .brand small{ display:none; }
+  .burger{ order:2; }
+}
+
+
+
+header{ z-index:60; }
+header, .nav, nav{ overflow:visible; }
