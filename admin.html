@@ -62,6 +62,10 @@
           <div class="muted" style="font-size:.85rem;margin-top:.3rem">
             سيتم تصغير الصورة تلقائيًا إلى أقصى عرض 1200px قبل الرفع.
           </div>
+          <div style="margin-top:.4rem;display:flex;gap:.5rem">
+            <button id="clearImg" class="btn" type="button">مسح الصورة</button>
+            <a class="btn" href="products.html" target="_blank">فتح صفحة المنتجات</a>
+          </div>
         </div>
       </div>
 
@@ -70,10 +74,8 @@
         <div><label>الوصف</label><textarea id="desc_ar" placeholder="وصف مختصر…"></textarea></div>
       </div>
 
-      <div style="margin-top:.8rem;display:flex;gap:.6rem;flex-wrap:wrap">
+      <div style="margin-top:.8rem">
         <button id="add" class="btn">إضافة المنتج</button>
-        <button id="clearImg" class="btn" type="button">مسح الصورة</button>
-        <a class="btn" href="products.html" target="_blank">فتح صفحة المنتجات</a>
       </div>
     </div>
 
@@ -161,14 +163,23 @@ function dataURLtoBlob(dataURL){
   return new Blob([u8], { type: mime });
 }
 
+/* === helper: إحضار الرابط العام للصورة من التخزين === */
+function getPublicUrl(path){
+  const { data } = sb.storage.from(BUCKET).getPublicUrl(path);
+  return data.publicUrl;
+}
+
 /* ===== Upload to storage ===== */
 async function uploadImage(){
   const file = compressedBlob || selectedFile;
   if (!file) { alert('اختر صورة من جهازك'); return null; }
 
-  const ext  = (file.type && file.type.split('/')[1]) || 'jpg';
-  // لاحظ وجود الـ backticks ` ... ` وليس علامات اقتباس عادية
-const path = public/`${date.now()}-${match.random().tostring(36).slice(2)}.${ext}`;
+  // لو هنرفع النسخة المضغوطة نجبر الامتداد jpg
+  let ext = (file.type && file.type.split('/')[1]) || 'jpg';
+  if (compressedBlob) ext = 'jpg';
+
+  // ✅ السطر الصحيح باستخدام backticks والنص "public/"
+  const path = `public/${Date.now()}_${Math.random().toString(36).slice(2)}.${ext}`;
 
   const { data, error } = await sb.storage.from(BUCKET).upload(path, file, { upsert: false });
   if (error) { alert('خطأ في رفع الصورة: ' + error.message); return null; }
@@ -183,8 +194,9 @@ document.getElementById('add').onclick = async ()=>{
   if(!title){ alert('أدخل عنوان المنتج'); return; }
   if(!selectedFile && !compressedBlob){ alert('اختر صورة من جهازك'); return; }
 
-  const image_path = await uploadImage(); if(!image_path) return;
-  const image_url  = getPublicUrl(image_path);
+  const image_path = await uploadImage();
+  if(!image_path) return;                      // ✅ لو مفيش صورة نوقف
+  const image_url  = getPublicUrl(image_path); // ✅ توليد رابط عام
 
   const { error } = await sb.from('products').insert([{
     category: cat,
@@ -193,9 +205,10 @@ document.getElementById('add').onclick = async ()=>{
     image_url,
     image_path,
     is_published: true
-  }]);
+  }]);                                         // ممكن تضيف .select() لو محتاج data
   if(error){ alert('خطأ في حفظ المنتج: ' + error.message); return; }
 
+  // تنظيف
   document.getElementById('title_ar').value='';
   document.getElementById('desc_ar').value='';
   fileInput.value=''; selectedFile=null; compressedBlob=null;
@@ -234,18 +247,26 @@ async function renderList(){
     </div>
   `).join('');
 
-  wrap.querySelectorAll('button[data-id]').forEach(btn=>{
-    btn.onclick = async ()=>{
-      if(!confirm('مسح المنتج والصورة؟')) return;
-      const id   = +btn.getAttribute('data-id');
-      const path = btn.getAttribute('data-path');
-      await sb.storage.from(BUCKET).remove([path]);
-      const { error: delErr } = await sb.from('products').delete().eq('id', id);
-      if(delErr){ alert('خطأ في المسح: ' + delErr.message); return; }
-      await renderList();
-      alert('تم المسح ✅');
-    };
-  });
+wrap.querySelectorAll('button[data-id]').forEach(btn => {
+  btn.onclick = async () => {
+    if (!confirm('مسح المنتج والصورة؟')) return;
+
+    const id   = btn.getAttribute('data-id');   // <-- بدون +
+    const path = btn.getAttribute('data-path');
+
+    // امسح الصورة من الستوريج أولاً
+    const { error: stErr } = await sb.storage.from(BUCKET).remove([path]);
+    if (stErr) { alert('خطأ في مسح الصورة: ' + stErr.message); return; }
+
+    // بعدين امسح السجل من الجدول
+    const { error: delErr } = await sb.from('products').delete().eq('id', id);
+    if (delErr) { alert('خطأ في مسح السجل: ' + delErr.message); return; }
+
+    await renderList();
+    alert('تم المسح ✅');
+  };
+});
+
 }
 </script>
 
